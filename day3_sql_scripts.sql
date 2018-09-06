@@ -8,3 +8,7 @@ select * from product
  
 SELECT * FROM product
  order by ListPrice desc;
+ 
+SELECT product.ProductID, product.Code, product.Description, product.ListPrice  
+  FROM product as pdt;
+
