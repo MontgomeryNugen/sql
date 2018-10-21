@@ -124,6 +124,14 @@ INSERT INTO `product` (`ID`,`VendorID`,`PartNumber`,`Name`,`Price`,`Unit`,`Photo
 INSERT INTO `product` (`ID`,`VendorID`,`PartNumber`,`Name`,`Price`,`Unit`,`PhotoPath`) VALUES (12,5,'228148','Acer Aspire ATC-780A-UR12 Desktop Computer',399.99,'','/images/AcerAspireDesktop.jpg');
 INSERT INTO `product` (`ID`,`VendorID`,`PartNumber`,`Name`,`Price`,`Unit`,`PhotoPath`) VALUES (13,5,'279364','Lenovo IdeaCentre All-In-One Desktop',349.99,'','/images/LenovoIdeaCenter.jpg');
 
+-- insert purchase request
+INSERT INTO purchaserequest (ID, UserID, Description, Justification, DateNeeded, DeliveryMode, Status, Total, SubmittedDate, ReasonForRejection) VALUES (1001,1,'Office Supplies','Need monthly office supplies', '2018-10-18', 'USPS', 'NEW', 59.34, '2018-10-02', 'NA');
+INSERT INTO purchaserequest (ID, UserID, Description, Justification, DateNeeded, DeliveryMode, Status, Total, SubmittedDate, ReasonForRejection) VALUES (1002,2,'Copier Supplies','Need paper', '2018-10-15', 'USPS', 'NEW', 78.85, '2018-10-05', 'NA');
+
+-- insert purchase requestlineitem
+INSERT INTO purchaserequestlineitem (ID, PurchaseRequestID, ProductID, Quantity) VALUES (1507,1001,6,1);
+INSERT INTO purchaserequestlineitem (ID, PurchaseRequestID, ProductID, Quantity) VALUES (1508,1001,7,6);
+
 CREATE USER prs_user@localhost IDENTIFIED BY 'sesame';
 GRANT SELECT, INSERT, DELETE, UPDATE ON prs.* TO prs_user@localhost;
 
